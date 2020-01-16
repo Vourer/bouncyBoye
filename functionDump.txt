@@ -1,0 +1,49 @@
+
+def stworz_wykres(hmax, x, y):
+    wykres, os = plt.subplots()
+    dane = []
+
+    os.set_xlabel('x')
+    os.set_ylabel('y')
+    os.set_title('Wykres zmiany położenia piłki')
+    line, = os.plot(x, y, '-m', linewidth=3)        # ślad
+    lineb, = os.plot(x, y, 'ob', markersize=10)     # piłka
+    os.set_xlim(-1, 4 * hmax)
+    os.set_ylim(0, 2 * hmax)
+    dane.append((line, lineb))
+
+    plt.show()
+
+    return wykres, os, dane
+
+
+def aktualizuj_wykres(os,dane,t,x,y):
+    line,lineb = dane[0]
+    lineb.set_xdata(x)
+    lineb.set_ydata(y)
+    line.set_xdata( np.append(line.get_xdata(), x))
+    line.set_ydata( np.append(line.get_ydata(), y))
+    os.set_title('t = %.2f' % t)
+    if x > os.get_xlim()[1]:
+        os.set_xlim(-1,2*x)
+    if y > os.get_ylim()[1]:
+        os.set_ylim(0,2*y)
+
+    plt.show()
+    return
+
+
+    #wykres, os, dane = stworz_wykres(pilka.hmax, pilka.x, pilka.y)
+    #aktualizuj_wykres(os, dane, t, pilka.x, pilka.y)
+
+"""
+    fig, ax = plt.subplots()
+    ax.set_xlim(0, tmax*1.1)
+    ax.set_ylim(0, pilka.hmax*2)
+    line, = ax.plot(0, 0)
+
+
+    animacja = FuncAnimation(fig, func=klatka_animacji, interval=30)
+    plt.show()
+    animacja.save('hophop01.gif', writer='imagemagick', fps=50)
+    """
