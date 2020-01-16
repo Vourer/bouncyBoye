@@ -38,8 +38,7 @@ def aktualizuj_pilke(x_stare, y_stare, vx_stare, vy_stare, t, dt):
 
 
 def main():
-    print("Symulator rzutu poziomego")
-    v0 = 2 #input("Podaj prędkość początkową wyrzuconej piłki:")
+    v0 = 5 #input("Podaj prędkość początkową wyrzuconej piłki:")
     kat = 60 #input("Podaj kąt rzucenia piłki:")
     h0 = 0 #input("Podaj wysokość początkową piłki:")
     dt = 0.1 #input("Podaj czas, po którym wartości mają być aktualizowane: ")
@@ -59,6 +58,9 @@ def main():
     # wykres wysokości od czasu
     fig, ax = plt.subplots()
     ax.plot(t_list, y_list)
+    plt.title("Wykres zależności wysokości h od upływu czasu t")
+    plt.xlabel("t [s]")
+    plt.ylabel("h [m]")
     plt.show()
 
 
