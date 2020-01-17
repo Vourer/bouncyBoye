@@ -47,3 +47,24 @@ def aktualizuj_wykres(os,dane,t,x,y):
     plt.show()
     animacja.save('hophop01.gif', writer='imagemagick', fps=50)
     """
+
+
+def aktualizuj_pilke_stare(x_stare, y_stare, vx_stare, vy_stare, t, dt):
+    # uaktualnienie położenia x i y oraz prędkości vy - niech vx będzie na razie stałe
+    vx_nowe = vx_stare #+ g * dt
+    vy_nowe = vy_stare + g * dt
+    x_nowe = x_stare + vx_stare * dt
+    y_nowe = y_stare + vy_stare * dt
+
+    # sprawdzanie czy piłka nie no-clip'uje przez podłogę
+    # jeśli tak, to robimy krok czasowy trochę mniejszsy, żeby akurat trafić w położenie y=0
+    if y_nowe < 0:
+        y_nowe = 0
+        dt_hop = -y_stare / vy_stare  # liczenie czasu dt, po którym nastąpi odbicie od podłogi
+        vy_nowe = -(vy_stare + g * dt_hop)
+        x_nowe = x_stare + vx_stare * dt_hop
+        t += dt_hop
+    else:
+        t += dt
+
+    return x_nowe, y_nowe, vx_nowe, vy_nowe, t
