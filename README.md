@@ -9,13 +9,15 @@ Opis plików:
 - wynik.html - strona na którą przekierowuje przycisk 'Przeprowadź symulację', zawierająca dane i wykresy powstałe w symulacji
 - styl.css - arkusz stylów obsługujący formatowanie wyglądu strony
 
-Prawidłowy układ plików powinien wyglądać następująco:
+Prawidłowy układ plików powinien wyglądać następująco
+```
 bouncyBoye/
-  templates/
-     baza.html
-     index.html
-     wynik.html
-  static/
-     styl.css
-  app.py
-  program.py
+	templates/
+		baza.html
+		index.html
+		wynik.html
+	static/
+		styl.css
+	app.py
+	program.py
+```
