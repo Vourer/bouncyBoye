@@ -1,0 +1,37 @@
+{% extends "baza.html" %}
+
+{% block content %}
+
+  <header id='header'>
+    {% if czas %}
+    <h3>Całkowity czas trwania symulacji to {{ czas }}</h3>
+    {% endif %}
+    {% if odbicia %}
+    <h3>W tym czasie piłka odbiła się od ziemi {{ odbicia }} razy</h3>
+    {% endif %}
+    {% if hmax %}
+    <h3>Najwyższa wysokość, jaką osiągnęła piłka, to {{ hmax }} m</h3>
+    {% endif %}
+  </header>
+
+  <table class='center' width='80%'>
+    <tr>
+      <td id="wykres">
+        <img src="{{url_for('static', filename='wysokosc.png')}}" alt="Wykres zależności wysokości piłki h od upływu czasu t" width="490px">
+      </td>
+      <td id="wykres">
+        <img src="{{url_for('static', filename='energie.png')}}" alt="Wykres zależności poziomów energii piłki od upływu czasu t" width="490px">
+      </td>
+    </tr>
+    <tr>
+      <td id="wykres">
+        <img src="{{url_for('static', filename='calkowita.png')}}" alt="Wykres zależności energii całkowitej piłki od upływu czasu t" width="490px">
+      </td>
+      <td id="wykres">
+        <img src="{{url_for('static', filename='straty.png')}}" alt="Wykres sumy straconej energii podczas kolejnych odbić piłki" width="490px">
+      </td>
+    </tr>
+  </table>
+
+
+{% endblock %}
