@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <title>Symulacja rzutu pionowego piłki</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='styl.css')}}">
+</head>
+
+<body>
+  <header id='header'>
+    <h1>
+      <a href="{{ url_for('index') }}">Symulacja rzutu pionowego piłki</a>
+    </h1>
+    <h3>
+      Adam Marciniak, Anna Gruszka
+    </h3>
+  </header>
+
+  <section id="content" class="main">
+    <div id='wrapper'>
+
+      {% block content %} {% endblock %}
+
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+{% extends "baza.html" %}
+
+{% block content %}
+
+<form action="/dane" method="post">
+    <table class='center' width='70%'>
+      <tr>
+        <td id='opisujacy' colspan="3" align="center">Parametry rzucanej piłki:</td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Prędkość początkowa: </td>
+        <td><input name="v0" type="number" min="1" max="100" value="20"></td>
+        <td> m/s </td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Wysokość początkowa: </td>
+        <td><input name="h0" type="number" min="0" max="30" value="0"></td>
+        <td> m </td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Masa: </td>
+        <td><input name="m" type="number" min="0.1" max="10" value="0.5" step="0.2"></td>
+        <td> kg </td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Współczynnik straty energii: </td>
+        <td><input name="gamma" type="number" min="0" max="1" value="0.3" step="0.1"></td>
+        <td> </td>
+      </tr>
+      <tr><td>-<td></tr>
+      <tr>
+        <td id='opisujacy' colspan="3" align="center">Parametry czasowe symulacji:</td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Maksymalny czas trwania symulacji: </td>
+        <td><input name="tmax" type="number" min="1" max="50" value="25"></td>
+        <td> s </td>
+      </tr>
+      <tr>
+        <td id='pierwszy'>Krok czasu: </td>
+        <td><input name="dt" type="number" min="0.01" max="1" value="0.1" step="0.01"></td>
+        <td> ms </td>
+      </tr>
+
+      <tr>
+        <br>
+        <td colspan="3" align="center"><br>
+          <input type="submit" value="Przeprowadź symulację">
+          <input type="reset" value="Wyczyść dane">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+{% endblock %}
